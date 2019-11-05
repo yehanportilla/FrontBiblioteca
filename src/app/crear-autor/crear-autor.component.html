@@ -1,0 +1,65 @@
+<div class="contorno centrafrm">
+  <h1>Crear Nuevo Autor</h1>
+  <!--Para alerta de Errores, aparece cuando es diferente de valido-->
+  <div *ngIf="!esvalido" class="alert alert-danger col-md-8 mb-3" role="alert">
+   <strong>Error!</strong> {{mensaje}}
+  </div>
+  <!--Para alerta de Exitoso, aparece cuando esvalido-->
+  <div *ngIf="regExitoso"class="alert alert-success alert-dismissible fade show col-md-8 mb-3" role="alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+   <strong>Éxitoso!</strong> Autor: Registrado Exitosamente !
+  </div>
+
+<form (ngSubmit)="onSubmit(frmguardautor)" #frmguardautor="ngForm" novalidate>
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationServer01"> <span class="requerido">*</span>Nombres:</label>
+      <input type="text" class="form-control is-valid" name="f_nombre"id="f_nombre" [(ngModel)]="autor.nombre" placeholder="Digite Primer y Segundo Nombre" value="" required>
+      <div class="valid-feedback">
+      Se ve muy bien!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationServer02">Apellidos:</label>
+      <input type="text" class="form-control is-valid" name="f_apellido"id="f_apellido"[(ngModel)]="autor.apellido" placeholder="Digite Primer Y Segundo Apellido" value="" required>
+      <div class="valid-feedback">
+        Se ve bien!
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationServer03"><span class="requerido">*</span>Año</label>
+      <input type="text" class="form-control is-invalid" name="f_año"id="f_año" [(ngModel)]="autor.anioautor"placeholder="Digite Año de publicacion de Libro" required>
+      <div class="invalid-feedback">
+        Por favor proporcione una Año válido.
+      </div>
+    </div>
+
+    
+<div class="col-md-4 mb-3" >
+  <label for="validationServer03"><span class="requerido">*</span>Genero:</label>
+  <select class="form-control" [compareWith]="validarSelected"  name="f_genero" id="f_genero" [(ngModel)]="generoSelected">
+  
+  <option *ngFor="let listgen of generos" [ngValue]="listgen"> {{listgen.descripcion}}</option>
+  </select>
+</div>
+
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
+      <label class="form-check-label" for="invalidCheck3">
+        Aceptar los términos y condiciones.
+      </label>
+      <div class="invalid-feedback">
+        Usted debe estar de acuerdo antes de enviar.
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit" (click)="guardarAutor()">Guardar</button>
+  <button class="btn btn-success" type="button" style="margin-left:20px" [routerLink]="['/AutorComponent']">Lista Autores</button>
+</form>
+</div>

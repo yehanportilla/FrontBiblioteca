@@ -1,0 +1,10 @@
+.contorno{
+    padding: 15px;
+}
+.requerido{
+    color: red;
+}
+.centrafrm{
+margin: 0 auto;
+width: 70%;
+}

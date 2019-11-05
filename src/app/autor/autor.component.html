@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+
+<div class="clear">
+  <h2>Autores</h2>
+  <p>Lista de los Autores Registrados:</p>            
+  <div  *ngIf="regEliminado" class="alert alert-info alert-dismissible fade show col-md-6 mb-3" role="alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Info!</strong> Autor Eliminado Exitosamente !
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>CÓDIGO</th>
+        <th>NOMBRE</th>
+        <th>APELLIDO</th>
+        <th>AÑO</th>
+        <th>GENERO</th>
+        <th>ACCIÓN</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let autor of autores">
+        <td>{{autor.id}}</td>
+        <td>{{autor.nombre}}</td>
+        <td>{{autor.apellido}}</td>
+        <td>{{autor.anioautor}}</td>
+        <td>{{autor.genero.descripcion}}</td>
+        <td><img src="../../assets/editar.png" class="editIcon" (click)="edit(autor)">
+
+          <img src="../../assets/imgeliminar.png"class="eliminarIcon" (click)="eliminar(autor)">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

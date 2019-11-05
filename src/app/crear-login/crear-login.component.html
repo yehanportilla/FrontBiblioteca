@@ -1,0 +1,100 @@
+<div class="contorno centrafrm">
+  <h1>Registrar Usuario</h1>
+  <!--Para alerta de Errores, aparece cuando es diferente de valido-->
+  <div *ngIf="!esvalido" class="alert alert-danger col-md-8 mb-3" role="alert">
+   <strong>Error!</strong> {{mensaje}}
+  </div>
+  <!--Para alerta de Exitoso, aparece cuando esvalido-->
+  <div *ngIf="regExitoso"class="alert alert-success alert-dismissible col-md-8 mb-3" role="alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+   <strong>Éxitoso!</strong> Usuario: Registrado Exitosamente !
+  </div>
+
+<form>
+<!--Bloque 1 -->
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationServer01"> <span class="requerido">*</span>Nombre:</label>
+      <input type="text" class="form-control is-valid" name="f_nombre"id="f_nombre" [(ngModel)]="usuario.nombre" placeholder="Digite Nombre" value="" required>
+      <div class="valid-feedback">
+      Se ve bien!
+      </div>
+    </div>
+    
+    <div class="col-md-4 mb-3">
+      <label for="validationServer02">Apellido:</label>
+      <input type="text" class="form-control is-valid" name="f_apellido"id="f_apellido"[(ngModel)]="usuario.apellido" placeholder="Digite Usuario" value="" required>
+      <div class="valid-feedback">
+        Se ve bien!
+      </div>
+    </div>
+  </div>
+
+<!--Bloque 2 -->
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationServer03"><span class="requerido">*</span>Tipo documento</label>
+      <input type="text" class="form-control is-valid" name="f_tdoc"id="f_tdoc" [(ngModel)]="usuario"placeholder="Digite tipo documento" required>
+      <div class="valid-feedback">
+        Se ve bien!
+      </div>
+    </div>
+   
+      <div class="col-md-4 mb-3">
+        <label for="validationServer03"><span class="requerido">*</span>Numero documento</label>
+        <input type="text" class="form-control is-valid" name="f_numdoc"id="f_numdoc" [(ngModel)]="usuario.numdocumento"placeholder="Digite tipo documento" required>
+        <div class="valid-feedback">
+          Se ve bien!
+        </div>
+      </div>
+ 
+  </div>
+<!--Bloque 3 -->
+  <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationServer01"> <span class="requerido">*</span>Usuario:</label>
+        <input type="text" class="form-control is-valid" name="f_login"id="f_login" [(ngModel)]="usuario.login" placeholder="Digite Nombre" value="" required>
+        <div class="valid-feedback">
+        Se ve bien!
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-3">
+        <label for="validationServer02">Contraseña:</label>
+        <input type="text" class="form-control is-valid" name="f_contra"id="f_contra"[(ngModel)]="usuario.contrasenia" placeholder="Digite Usuario" value="" required>
+        <div class="valid-feedback">
+          Se ve bien!
+        </div>
+      </div>
+    </div>
+<!--Bloque 4 -->
+
+<div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationServer01"> <span class="requerido">*</span>Tipo Usuario:</label>
+      <input type="text" class="form-control is-valid" name="f_tusu"id="f_tusu" [(ngModel)]="usuario" placeholder="Digite Nombre" value="" required>
+      <div class="valid-feedback">
+      Se ve bien!
+      </div>
+    </div>
+  </div>
+
+
+
+<!--____________________________________________________-->
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
+      <label class="form-check-label" for="invalidCheck3">
+        Aceptar los términos y condiciones.
+      </label>
+      <div class="invalid-feedback">
+        Usted debe estar de acuerdo antes de enviar.
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit" (click)="guardaUsuario()">Registrar</button>
+</form>
+</div>
+

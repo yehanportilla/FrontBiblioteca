@@ -1,0 +1,27 @@
+<div class="contorno centrafrm">
+        <img src="../../assets/imglogin.png" alt="" class="imgperfil">
+    <form name="formLogin" #formLogin="ngForm" novalidate>
+
+        <div class="form-group col-md-12 mb-3">
+            <label for="login">USUARIO</label>
+            <input name="login" id="login" class="form-control"  [(ngModel)]="usuario.login" #login="ngModel" required/>
+            <div  *ngIf="enviafrm && login.errors" class="campo_requerido">Usuario es requerido</div>
+        </div>
+
+        <div class="form-group col-md-12 mb-3" [ngClass]="{ 'is-invalid': submitted && contrasenia.errors }">
+            <label for="contrasenia">CONTRASEÑA</label>
+            <input type="contrasenia" class="form-control" name="contrasenia" #contrasenia="ngModel" [(ngModel)]="usuario.contrasenia"
+                required />
+            <div *ngIf="enviafrm && contrasenia.errors" class="campo_requerido">
+                <div *ngIf="contrasenia.errors.required">Contraseña es requerida</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit"  (click)="sesion()">Login</button>
+            <img *ngIf="loading" src="" />
+            <a [routerLink]="['/CrearLoginComponent']" class="btn btn-link">Registro</a>
+        </div>
+    </form>
+
+</div>
+

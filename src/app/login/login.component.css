@@ -1,0 +1,40 @@
+.contorno{
+ 
+    padding: 50px;
+}
+    .centrafrm {
+        margin: 0 auto;
+        width: 25%;
+        /*border: 1px solid rgb(87, 145, 192);*/
+        background-color: #EDEDED;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 15px;
+        border-color:#d2d2d2;
+        border-width: 5px;
+        box-shadow:0 1px 0 #cfcfcf;
+    }
+
+    .imgperfil {
+        width: 96px;
+        height: 96px;
+        margin: 0 auto 10px;
+        display: block;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+    /*
+    input.ng-invalid.ng-touched {
+        border: 1px solid red
+     }*/
+
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; 
+  }
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}
